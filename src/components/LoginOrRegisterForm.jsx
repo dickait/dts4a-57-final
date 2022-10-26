@@ -116,58 +116,62 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
 		<Grid
 			container
 			spacing={0}
-			direction="column"
+			direction="row"
 			alignItems="center"
 			justifyContent="center"
-			style={{ minHeight: "95vh" }}
+			style={{ minHeight: "100vh" }}
+			bgcolor="black"
 		>
-			<Box className={styles.boxy} component="form" noValidate>
-				<Typography variant="body1">
-					{loginOrRegister === "login"
-						? "Login Page"
-						: "Register Page"}
-				</Typography>
+			<Grid item xs>
+				<Typography>test</Typography>
+			</Grid>
+			<Grid item xs>
+				<Box className={styles.boxy} component="form" noValidate>
 
-				<TextField
-					label="Email"
-					type="email"
-					variant="outlined"
-					size="small"
-					value={credential.email}
-					onChange={textFieldEmailOnChangeHandler}
-				/>
+					<TextField
+						label="Email"
+						type="email"
+						variant="outlined"
+						size="small"
+						value={credential.email}
+						onChange={textFieldEmailOnChangeHandler}
+						sx={{ bgcolor: 'gray', color: 'white', height:"40px", border:"white"}}
+					/>
 
-				<TextField
-					label="password"
-					type="Password"
-					variant="outlined"
-					size="small"
-					value={credential.password}
-					onChange={textFieldPasswordOnChangeHandler}
-				/>
+					<TextField
+						label="password"
+						type="Password"
+						variant="outlined"
+						size="small"
+						value={credential.password}
+						onChange={textFieldPasswordOnChangeHandler}
+						sx={{ bgcolor: 'gray', color: 'white', height:"40px" }}
+					/>
 
-				<Button
-					variant="outlined"
-					size="small"
-					onClick={buttonLoginOrRegisterOnClickHandler}
-				>
-					{loginOrRegister === "login" ? "Login" : "Register Account"}
-				</Button>
+					<Button
+						// variant="outlined"
+						size="small"
+						onClick={buttonLoginOrRegisterOnClickHandler}
+						sx={{ bgcolor: 'red', color: 'white', height:"40px" }}
+					>
+						{loginOrRegister === "login" ? "Sign In" : "Register Account"}
+					</Button>
 
-				{loginOrRegister === "login" ? (
-					<Link to="/register">
-						<Typography variant="body1">
-							or do you want Register ?
-						</Typography>
-					</Link>
-				) : (
-					<Link to="/login">
-						<Typography variant="body1">
-							or do you want Login ?
-						</Typography>
-					</Link>
-				)}
-			</Box>
+					{loginOrRegister === "login" ? (
+						<Link to="/register">
+							<Typography variant="body1" sx={{ color: 'white'}}>
+								Register Account?
+							</Typography>
+						</Link>
+					) : (
+						<Link to="/login">
+							<Typography variant="body1" sx={{ color: 'white'}}>
+								Sign In?
+							</Typography>
+						</Link>
+					)}
+				</Box>
+  			</Grid>
 		</Grid>
 	);
 };
