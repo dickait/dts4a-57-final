@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+// useEffect sudah tidak digunakan lagi
+import React from "react";
+
+import NavBar from "./components/NavBar";
+import HomePage from "./containers/HomePage";
+
+// Ini sudah tidak digunakan karena sudah ada ProtectedComponent
+// import { useNavigate } from "react-router-dom";
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import { auth } from "./authentication/firebase";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// Bagian ini pun jadi tidak digunakan karena sudah ada ProtectedComponent
+	// const navigate = useNavigate();
+	// const [user, isLoading, error] = useAuthState(auth);
+
+	// useEffect(
+	//   () => {
+	//     // Bila ada logic / Component login
+	//     if (isLoading) {
+	//       return;
+	//     }
+
+	//     // Bila Authnya null, kita kembalikan ke halaman login
+	//     if (!user) {
+	//       navigate("/login");
+	//     }
+	//   },
+	//   // dependency list
+	//   [user, isLoading, navigate]
+	// );
+
+	return (
+		<div className="App">
+			<NavBar />
+			<HomePage />
+		</div>
+	);
 }
 
 export default App;
