@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LoginPage from "./containers/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
+import SeriesPage from "./containers/SeriesPage";
 
 // Kita akan import ProtectedComponent untuk digunakan di sini
 import ProtectedComponent from "./components/ProtectedComponent";
@@ -25,6 +26,7 @@ root.render(
 						</ProtectedComponent>
 					}
 				/>
+				<Route path="series" element={<SeriesPage />} />
 				<Route path="login" element={<LoginPage />} />
 				<Route path="register" element={<RegisterPage />} />
 			</Routes>

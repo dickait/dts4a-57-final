@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 
-import { AppBar, Box, Toolbar, Typography, Container, Menu, IconButton, MenuItem, Tooltip } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
+import {
+	AppBar,
+	Box,
+	Toolbar,
+	Typography,
+	Container,
+	Menu,
+	IconButton,
+	MenuItem,
+	Tooltip,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 
 // Import fungsi untuk melakukan Logout
 import { keluarDariApps } from "../authentication/firebase";
 
-import logo from "../logo.png"
+import logo from "../logo.png";
 import ProfilePicture from "../ProfilePicture.png";
 // import styles from "./NavBar.module.css";
 
@@ -42,9 +52,9 @@ const NavBar = () => {
 	};
 
 	return (
-		<AppBar position="static" sx={{ bgcolor: 'black' }}>
-			<Container maxWidth="xl" >
-				<Toolbar disableGutters >
+		<AppBar position="static" sx={{ bgcolor: "black" }}>
+			<Container maxWidth="xl">
+				<Toolbar disableGutters>
 					<Box
 						component="img"
 						sx={{
@@ -56,7 +66,12 @@ const NavBar = () => {
 						src={logo}
 					/>
 
-					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+					<Box
+						sx={{
+							flexGrow: 1,
+							display: { xs: "flex", md: "none" },
+						}}
+					>
 						<IconButton
 							size="large"
 							aria-label="account of current user"
@@ -71,39 +86,64 @@ const NavBar = () => {
 							id="menu-appbar"
 							anchorEl={anchorElNav}
 							anchorOrigin={{
-								vertical: 'bottom',
-								horizontal: 'left',
+								vertical: "bottom",
+								horizontal: "left",
 							}}
 							keepMounted
 							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'left',
+								vertical: "top",
+								horizontal: "left",
 							}}
 							open={Boolean(anchorElNav)}
 							onClose={handleCloseNavMenu}
 							sx={{
-								display: { xs: 'block', md: 'none' },
+								display: { xs: "block", md: "none" },
 							}}
 						>
-							<MenuItem >
-								<Typography component="a"
-							href="/" textAlign="center">Home</Typography>
+							<MenuItem>
+								<Typography
+									component="a"
+									href="/"
+									textAlign="center"
+								>
+									Home
+								</Typography>
 							</MenuItem>
-							<MenuItem >
-								<Typography component="a"
-							href="/series" textAlign="center">Series</Typography>
+							<MenuItem>
+								<Typography
+									component="a"
+									href="/series"
+									textAlign="center"
+								>
+									Series
+								</Typography>
 							</MenuItem>
-							<MenuItem >
-								<Typography component="a"
-							href="/movie" textAlign="center">Movie</Typography>
+							<MenuItem>
+								<Typography
+									component="a"
+									href="/movie"
+									textAlign="center"
+								>
+									Movie
+								</Typography>
 							</MenuItem>
-							<MenuItem >
-								<Typography component="a"
-							href="/new-and-popular" textAlign="center">New and Popular</Typography>
+							<MenuItem>
+								<Typography
+									component="a"
+									href="/new-and-popular"
+									textAlign="center"
+								>
+									New and Popular
+								</Typography>
 							</MenuItem>
 						</Menu>
 					</Box>
-					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+					<Box
+						sx={{
+							flexGrow: 1,
+							display: { xs: "none", md: "flex" },
+						}}
+					>
 						<Typography
 							variant="h6"
 							noWrap
@@ -111,9 +151,9 @@ const NavBar = () => {
 							href="/"
 							sx={{
 								mr: 2,
-								display: { xs: 'none', md: 'flex' },
-								color: 'inherit',
-								textDecoration: 'none',
+								display: { xs: "none", md: "flex" },
+								color: "inherit",
+								textDecoration: "none",
 							}}
 						>
 							Home
@@ -125,9 +165,9 @@ const NavBar = () => {
 							href="/series"
 							sx={{
 								mr: 2,
-								display: { xs: 'none', md: 'flex' },
-								color: 'inherit',
-								textDecoration: 'none',
+								display: { xs: "none", md: "flex" },
+								color: "inherit",
+								textDecoration: "none",
 							}}
 						>
 							Series
@@ -139,9 +179,9 @@ const NavBar = () => {
 							href="/movies"
 							sx={{
 								mr: 2,
-								display: { xs: 'none', md: 'flex' },
-								color: 'inherit',
-								textDecoration: 'none',
+								display: { xs: "none", md: "flex" },
+								color: "inherit",
+								textDecoration: "none",
 							}}
 						>
 							Movies
@@ -153,9 +193,9 @@ const NavBar = () => {
 							href="/new-and-popular"
 							sx={{
 								mr: 2,
-								display: { xs: 'none', md: 'flex' },
-								color: 'inherit',
-								textDecoration: 'none',
+								display: { xs: "none", md: "flex" },
+								color: "inherit",
+								textDecoration: "none",
 							}}
 						>
 							New and Popular
@@ -164,7 +204,10 @@ const NavBar = () => {
 
 					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title="Open settings">
-							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+							<IconButton
+								onClick={handleOpenUserMenu}
+								sx={{ p: 0 }}
+							>
 								<Box
 									component="img"
 									sx={{
@@ -178,23 +221,25 @@ const NavBar = () => {
 							</IconButton>
 						</Tooltip>
 						<Menu
-							sx={{ mt: '45px' }}
+							sx={{ mt: "45px" }}
 							id="menu-appbar"
 							anchorEl={anchorElUser}
 							anchorOrigin={{
-								vertical: 'top',
-								horizontal: 'right',
+								vertical: "top",
+								horizontal: "right",
 							}}
 							keepMounted
 							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'right',
+								vertical: "top",
+								horizontal: "right",
 							}}
 							open={Boolean(anchorElUser)}
 							onClose={handleCloseUserMenu}
 						>
 							<MenuItem onClick={buttonLogoutOnClickHandler}>
-								<Typography textAlign="center">Logout</Typography>
+								<Typography textAlign="center">
+									Logout
+								</Typography>
 							</MenuItem>
 						</Menu>
 					</Box>
